@@ -9,7 +9,6 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>oracle-code-one-2018</name>
-  <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
@@ -22,6 +21,13 @@
     <dependency>
       <groupId>net.bytebuddy</groupId>
       <artifactId>byte-buddy</artifactId>
+      <version>1.8.22</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.3.1</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -42,12 +48,17 @@
           <version>3.7.0</version>
         </plugin>
         <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.20.1</version>
-        </plugin>
-        <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
+          <configuration>
+            <archive>
+              <index>true</index>
+              <manifestEntries>
+                <Boot-Class-Path>byte-buddy-1.8.22.jar</Boot-Class-Path>
+                <Premain-Class>com.sakatakoichi.logging.LoggingAgent</Premain-Class>
+              </manifestEntries>
+            </archive>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
