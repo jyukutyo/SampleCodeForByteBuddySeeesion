@@ -21,6 +21,8 @@ public class Agent {
 
         Map<String, Class> classMap = Arrays.stream(inst.getAllLoadedClasses()).collect(Collectors.toMap(c -> c.getName(), c -> c, (c1, c2) -> c1));
         String target = "sample.jsp.WelcomeController";
+
+        // we need to use a classloader that the target application is using
         ClassLoader classLoader = classMap.get(target).getClassLoader();
 
         ByteBuddy byteBuddy = new ByteBuddy();

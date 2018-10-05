@@ -62,7 +62,6 @@
                 <Boot-Class-Path>../byte-buddy-1.8.22.jar</Boot-Class-Path>
                 <Agent-Class>com.sakatakoichi.springboot.Agent</Agent-Class>
                 <Can-Retransform-Classes>true</Can-Retransform-Classes>
-                <Can-Redefine-Classes>true</Can-Redefine-Classes>
               </manifestEntries>
             </archive>
           </configuration>
