@@ -35,6 +35,7 @@ public class LoggingAgent {
                 return classfileBuffer;
             }
         });
+        // TODO
 //        new AgentBuilder.Default()
 //                .type(ElementMatchers.named("com.sakatakoichi.logging.Target"))
 //                .transform(new AgentBuilder.Transformer() {
