@@ -16,7 +16,6 @@ import net.bytebuddy.pool.TypePool;
 public class LoggingAgent {
 
     public static void premain(String args, Instrumentation inst) {
-
         inst.addTransformer(new ClassFileTransformer() {
             @Override
             public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) {

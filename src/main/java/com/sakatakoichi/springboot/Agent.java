@@ -2,8 +2,6 @@ package com.sakatakoichi.springboot;
 
 import java.lang.instrument.Instrumentation;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.agent.builder.AgentBuilder;
@@ -19,11 +17,14 @@ public class Agent {
 
         System.out.println("agentmain is called");
 
-        Map<String, Class> classMap = Arrays.stream(inst.getAllLoadedClasses()).collect(Collectors.toMap(c -> c.getName(), c -> c, (c1, c2) -> c1));
         String target = "sample.jsp.WelcomeController";
-
         // we need to use a classloader that the target application is using
-        ClassLoader classLoader = classMap.get(target).getClassLoader();
+        ClassLoader classLoader = Arrays
+                .stream(inst.getAllLoadedClasses())
+                .filter(c -> target.equals(c.getName()))
+                .findAny()
+                .map(Class::getClassLoader)
+                .get();
 
         ByteBuddy byteBuddy = new ByteBuddy();
         byteBuddy
