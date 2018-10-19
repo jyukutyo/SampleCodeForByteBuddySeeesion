@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.sakatakoichi</groupId>
-  <artifactId>oracle-code-one-2018</artifactId>
+  <artifactId>javaagent-example</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <name>oracle-code-one-2018</name>
@@ -60,7 +60,7 @@
               <index>true</index>
               <manifestEntries>
                 <Boot-Class-Path>../byte-buddy-1.8.22.jar</Boot-Class-Path>
-                <Premain-Class>com.sakatakoichi.logging.LoggingAgent</Premain-Class>
+                <Premain-Class>com.sakatakoichi.javaagent.Agent</Premain-Class>
               </manifestEntries>
             </archive>
           </configuration>
